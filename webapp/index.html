@@ -14,15 +14,11 @@
 			data-sap-ui-resourceroots='{"opensap.myapp" : "./"}'>
 		</script>
 		<script>
-			sap.ui.getCore().attachInit(function () {
-			/*	var oImage = new sap.m.Image({
-					src: "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg"
-				}).placeAt("content");
-				oImage.setHeight("400px");*/
-			sap.ui.xmlview({
-				viewName : "opensap.myapp.view.App"
-			}).placeAt("content");	
-			});
+		sap.ui.getCore().attachInit(function () {
+			new sap.ui.core.ComponentContainer({
+				name : "opensap.myapp"
+			}).placeAt("content");
+		});
 		</script>
 
 	</head>
