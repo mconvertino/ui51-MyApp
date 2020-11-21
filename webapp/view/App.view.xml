@@ -51,7 +51,12 @@
 								<content>
 									<List headerText="{i18n>productListTitle}" items="{/ProductSet}">
 										<items>
-											<ObjectListItem title="{Name}" number="{Price}" intro="{ProductID}"/>
+											<ObjectListItem title="{Name}" number="{Price}" numberUnit="{CurrencyCode}" numberState="{= ${Price} > 500 ? 'Error' : 'Success'}"
+												intro="{ProductID}">
+												<firstStatus>
+													<ObjectStatus text="{ parts: [ {path: 'WeightUnit'}, {path: 'WeightMeasure'} ], formatter : '.formatter.delivery' }"/>
+												</firstStatus>
+											</ObjectListItem>
 										</items>
 									</List>
 								</content>

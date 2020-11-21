@@ -1,20 +1,22 @@
-sap.ui.define(
-	[
-		"sap/ui/core/mvc/Controller",
-		"sap/m/MessageToast",
+sap.ui.define([
+	"sap/ui/core/mvc/Controller",
+	"sap/m/MessageToast",
+	"opensap/myapp/model/formatter"
+], function (Controller, MessageToast, formatter) {
+	"use strict";
 
-	],
-	function (Controller, MessageToast) {
-		Controller.extend("opensap.myapp.controller.App", {
-			onShowHello: function () {
+	return Controller.extend("opensap.myapp.controller.App", {
 
-				// read msg from i18n model
-				var oBundle = this.getView().getModel("i18n").getResourceBundle();
-				var sRecipient = this.getView().getModel("helloPanel").getProperty("/recipient/name");
-				var sMsg = oBundle.getText("helloMsg", [sRecipient]);
+		formatter: formatter,
 
-				// show message
-				MessageToast.show(sMsg);
-			}
-		});
+		onShowHello: function () {
+			// read msg from i18n model
+			var oBundle = this.getView().getModel("i18n").getResourceBundle();
+			var sRecipient = this.getView().getModel("helloPanel").getProperty("/recipient/name");
+			var sMsg = oBundle.getText("helloMsg", [sRecipient]);
+
+			// show message
+			MessageToast.show(sMsg);
+		}
 	});
+});
