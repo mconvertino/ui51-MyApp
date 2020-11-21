@@ -9,8 +9,18 @@
 		"description": "{{appDescription}}",
 		"applicationVersion": {
 			"version": "1.0.0"
+		},
+		"dataSources": {
+			"ES5": {
+				"uri": "/destinations/ES5/sap/opu/odata/IWBEP/GWSAMPLE_BASIC/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
 		}
 	},
+
 	"sap.ui": {
 		"_version": "1.3.0",
 		"technology": "UI5",
@@ -57,7 +67,11 @@
 			"address": {
 				"type": "sap.ui.model.json.JSONModel",
 				"uri": "model/Address.json"
+			},
+			"": {
+				"dataSource": "ES5"
 			}
+
 		},
 		"contentDensities": {
 			"compact": true,
