@@ -51,8 +51,8 @@
 							</IconTabFilter>
 							<IconTabFilter text="{i18n>dataBindingFilter}" key="db">
 								<content>
-									<List id="productsList" items="{ path : '/ProductSet', sorter : { path : 'Category', group : true } }" growing="true" growingThreshold="5"
-										growingScrollToLoad="false" mode="SingleSelectMaster" selectionChange="onItemSelected">
+									<List id="productsList" items="{ path : '/ProductSet', sorter : { path : 'Category', group : true }, parameters: {expand : 'ToSupplier'} }"
+										growing="true" growingThreshold="5" growingScrollToLoad="false" mode="SingleSelectMaster" selectionChange="onItemSelected">
 										<headerToolbar>
 											<Toolbar>
 												<Title text="{i18n>productListTitle}"></Title>
@@ -67,6 +67,9 @@
 												<firstStatus>
 													<ObjectStatus text="{ parts: [ {path: 'WeightUnit'}, {path: 'WeightMeasure'} ], formatter : '.formatter.delivery' }"/>
 												</firstStatus>
+												<secondStatus>
+													<ObjectStatus title="Delivered from" text="{ToSupplier/Address/City}"/>
+												</secondStatus>
 											</ObjectListItem>
 										</items>
 									</List>
