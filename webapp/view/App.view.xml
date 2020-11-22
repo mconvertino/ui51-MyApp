@@ -1,4 +1,4 @@
-<mvc:View displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+<mvc:View displayBlock="true" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout"
 	xmlns="sap.m" controllerName="opensap.myapp.controller.App">
 	<App>
 		<pages>
@@ -51,7 +51,8 @@
 							</IconTabFilter>
 							<IconTabFilter text="{i18n>dataBindingFilter}" key="db">
 								<content>
-									<List id="productsList" items="{ path : '/ProductSet', sorter : { path : 'Category', group : true } }">
+									<List id="productsList" items="{ path : '/ProductSet', sorter : { path : 'Category', group : true } }" growing="true" growingThreshold="5"
+										growingScrollToLoad="false" mode="SingleSelectMaster" selectionChange="onItemSelected">
 										<headerToolbar>
 											<Toolbar>
 												<Title text="{i18n>productListTitle}"></Title>
@@ -69,6 +70,14 @@
 											</ObjectListItem>
 										</items>
 									</List>
+									<Panel id="productDetailsPanel" headerText="{i18n>productDetailPanelHeader}" visible="false">
+										<l:Grid defaultSpan="L3 M6 S12">
+											<Text text="{i18n>productDetailPanelID}: {ProductID}"/>
+											<Text text="{i18n>productDetailPanelName}: {Name}"/>
+											<Text text="{i18n>productDetailPanelDescription}:4 {Description}"/>
+											<Text text="{i18n>productDetailPanelPrice}: {Price}"/>
+										</l:Grid>
+									</Panel>
 								</content>
 							</IconTabFilter>
 						</items>
